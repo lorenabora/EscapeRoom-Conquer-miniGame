@@ -1,5 +1,6 @@
 # EscapeRoom-Conquer-miniGame
 ##Idee de bază
+
 Povestea din spatele temei pe care am ales-o este următoarea: dumneavoastră( jucătorul) vă treziți în camera tronului fără niciun indiciu, ușa din cpatele dumneavastră este încuiată, singura șansă de scapare este să rămâneți ultimul din încăpere. Scopul jocului este să evadați din încăpere prin devenirea noului rege( rege va fi entitatea care rămâne în viață până la finalul jocului).
 În partea din stânga-sus aveți mesaje sau indicii care să vă ajute să câștigați joculețul. În cufărul din stânga jucătorului se află sabia pe care o va utiliza jucătorul. 
 În prima etapă a jocului cavalerii regelui vor ataca jucătorul după acesta va păși în afara zonei sigure. Această zona se va reactiva odată cu reintrarea jucătorului în ea, dar numai în această etapă. După ce cavalerii au fost ambii învinși, regele va încerca să își apere titlul, atacând jucătorul și încercând să se apere de atacurile acestuia dacă o anumită distanță este atinsă între rege și jucător. În această ultimă etapă a jocului, zona sigură nu se va mai reactiva, jucătorul devenind vulnerabil.
@@ -17,6 +18,7 @@ Clasa Game are grijă ca toate buclele jocului să funcționeze bine, sa se actu
 Mai exista clasa ExceptionsG care se ocupă cu prinderea și tratarea a trei exceptii diferite: FileLoadingException, InvalidMovementException, InvalidAttackException. Pe prima o folosesc la testarea excepție de neîncărcare a imaginii de fundal în clasa Game. Pe următoarele două le flosesc cu try/catch în clasa Hero pentru nerespectarea mișcărilor impuse de la tastatură și atacuri invalide( ceva nu ar funcționa bine sau distanța e mult prea mare).
 
 ##Bibliografie 
+
 1.	YouTube, FuniTinker, “How I structure Entities In My Own C++ Game Engine”
 2.	YouTube, Dan Zaidan, “How to program a game in C++”(toate videoclipurile)
 3.	 YouTube, EOD-Ethan, “How to setup SFML in Visual Studio in 5 minutes. Fully Explained.”
