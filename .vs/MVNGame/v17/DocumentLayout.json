@@ -1,0 +1,213 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Hero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Hero.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\ExceptionsG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:ExceptionsG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:King.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:King.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Knight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:MainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FBD9B015-5E87-4334-80D0-8539B1144AD7}|MVNGame.vcxproj|solutionrelative:Knight.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Knight.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.cpp",
+              "RelativeDocumentMoniker": "Knight.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.cpp",
+              "RelativeToolTip": "Knight.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAApwBIAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T20:44:55.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Knight.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.h",
+              "RelativeDocumentMoniker": "Knight.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Knight.h",
+              "RelativeToolTip": "Knight.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T20:43:17.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.h",
+              "RelativeDocumentMoniker": "Entity.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.h",
+              "RelativeToolTip": "Entity.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T20:29:28.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Hero.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.cpp",
+              "RelativeDocumentMoniker": "Hero.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.cpp",
+              "RelativeToolTip": "Hero.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T20:26:09.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainGame.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\MainGame.cpp",
+              "RelativeDocumentMoniker": "MainGame.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\MainGame.cpp",
+              "RelativeToolTip": "MainGame.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-12T17:16:13.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hero.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.h",
+              "RelativeDocumentMoniker": "Hero.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Hero.h",
+              "RelativeToolTip": "Hero.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T20:37:51.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Entity.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.cpp",
+              "RelativeDocumentMoniker": "Entity.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Entity.cpp",
+              "RelativeToolTip": "Entity.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T20:16:11.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExceptionsG.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\ExceptionsG.h",
+              "RelativeDocumentMoniker": "ExceptionsG.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\ExceptionsG.h",
+              "RelativeToolTip": "ExceptionsG.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T21:12:58.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.cpp",
+              "RelativeDocumentMoniker": "Game.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.cpp",
+              "RelativeToolTip": "Game.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T21:00:33.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "King.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.h",
+              "RelativeDocumentMoniker": "King.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.h",
+              "RelativeToolTip": "King.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T20:51:16.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.h",
+              "RelativeDocumentMoniker": "Game.h",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\Game.h",
+              "RelativeToolTip": "Game.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-29T20:56:22.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "King.cpp",
+              "DocumentMoniker": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.cpp",
+              "RelativeDocumentMoniker": "King.cpp",
+              "ToolTip": "C:\\Users\\boral\\Desktop\\Lab1POO\\MVNGame\\King.cpp",
+              "RelativeToolTip": "King.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T20:52:51.534Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

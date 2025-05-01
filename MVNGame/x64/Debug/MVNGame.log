@@ -1,0 +1,10 @@
+﻿  Game.cpp
+C:\Users\boral\Desktop\Lab1POO\MVNGame\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'Game.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\Users\boral\Desktop\Lab1POO\MVNGame\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+C:\Users\boral\Desktop\Lab1POO\MVNGame\Game.cpp(210,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  MVNGame.vcxproj -> C:\Users\boral\Desktop\Lab1POO\MVNGame\x64\Debug\MVNGame.exe
