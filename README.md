@@ -1,7 +1,7 @@
 # EscapeRoom-Conquer-miniGame
 ## Idee de bază
 
-Povestea din spatele temei pe care am ales-o este următoarea: dumneavoastră( jucătorul) vă treziți în camera tronului fără niciun indiciu, ușa din cpatele dumneavastră este încuiată, singura șansă de scapare este să rămâneți ultimul din încăpere. Scopul jocului este să evadați din încăpere prin devenirea noului rege( rege va fi entitatea care rămâne în viață până la finalul jocului).
+Povestea din spatele temei pe care am ales-o este următoarea: dumneavoastră( jucătorul) vă treziți în camera tronului fără niciun indiciu, ușa din spatele dumneavoastră este încuiată, singura șansă de scapare este să rămâneți ultimul din încăpere. Scopul jocului este să evadați din încăpere prin devenirea noului rege( rege va fi entitatea care rămâne în viață până la finalul jocului).
 
 În partea din stânga-sus aveți mesaje sau indicii care să vă ajute să câștigați joculețul. În cufărul din stânga jucătorului se află sabia pe care o va utiliza jucătorul. 
 
