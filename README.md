@@ -1,5 +1,5 @@
 # EscapeRoom-Conquer-miniGame
-##Idee de bază
+## Idee de bază
 
 Povestea din spatele temei pe care am ales-o este următoarea: dumneavoastră( jucătorul) vă treziți în camera tronului fără niciun indiciu, ușa din cpatele dumneavastră este încuiată, singura șansă de scapare este să rămâneți ultimul din încăpere. Scopul jocului este să evadați din încăpere prin devenirea noului rege( rege va fi entitatea care rămâne în viață până la finalul jocului).
 În partea din stânga-sus aveți mesaje sau indicii care să vă ajute să câștigați joculețul. În cufărul din stânga jucătorului se află sabia pe care o va utiliza jucătorul. 
@@ -17,7 +17,7 @@ Clasa Game are grijă ca toate buclele jocului să funcționeze bine, sa se actu
 În partea privată a aceste clase am atât inițializările smart pointerilor, rendarea ferestrei, texturile, fontul, pereții, temporizatoarele și variabilele pentru gameStage și knightAlive( cavalerul care a rămas în viață). Drept funcții private le am pe următoarele: addKnights- care adaugă cavalerii în vector pe pozițiile corecte; initializeWalls – initializez zidurile incaperii pentru coliziuni; initilalizeChest – initializeaza cufarul de unde isi ia sabia( unde schimb textura cu una care are sabie in mana); initializeSafeZone – initializeze zona sigură din prima etapă; initilaizeBackground – initializez fundalul; initializeUI – setez cele două ferestre de start și Game Over cu mesaje și efect de blurare a fundalului; renderMenu – afisez mesajul de Play și fundalul aferent; renderGameOver – afisez mesajul de Game Over și fundalul aferent;  updateGameMessage – afișează mesajul din etapa jocului în care se află jucătorul; handleEvents – se ocupă de evenimente( deschiderea ferestrei, schimbarea interfetei de joc); isInSafeZone – verific dacă jucătorul se află în aria zonei sigure; changeTexture – schimb textura eroului atunci când ajunge la cufăr o dată; betweenKnights – setează o anumită distanță între cavaleri pentru a nu se suprapune entitățile lor; update – se ocupă de tot jocul, aici apelăm funcțiile anterior precizate, mișcăm entitățile, lansăm atacurile, actualizăm fiecare frame și mesaj; render – afișăm toate entitățile, fundaluri, pereți și ce alte lucruri mai sunt necesare pentru interfața grafică a jocului.
 Mai exista clasa ExceptionsG care se ocupă cu prinderea și tratarea a trei exceptii diferite: FileLoadingException, InvalidMovementException, InvalidAttackException. Pe prima o folosesc la testarea excepție de neîncărcare a imaginii de fundal în clasa Game. Pe următoarele două le flosesc cu try/catch în clasa Hero pentru nerespectarea mișcărilor impuse de la tastatură și atacuri invalide( ceva nu ar funcționa bine sau distanța e mult prea mare).
 
-##Bibliografie 
+## Bibliografie 
 
 1.	YouTube, FuniTinker, “How I structure Entities In My Own C++ Game Engine”
 2.	YouTube, Dan Zaidan, “How to program a game in C++”(toate videoclipurile)
