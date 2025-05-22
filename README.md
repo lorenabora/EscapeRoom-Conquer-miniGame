@@ -25,7 +25,18 @@ Clasa King operează la fel precum clasa Knight, diferența vine de la funcția 
 Clasa Game are grijă ca toate buclele jocului să funcționeze bine, sa se actualizeze corect toate frame-urile jocului cât timp fereastra este deschisă. Am două zone: în cea publică am inclus constructorul, destructorul clasei, funcția getGameMessage care va afișa mesajele stagiilor jocului, suprascrierea operatorului <<( pentru mesajele care vor fi scrise în terminal) și funcția run care manevrează cele trei funcții private care pun în funcțiune jocul cât timp fereastra este deschisă( handleEvents, update, render). 
 În partea privată a aceste clase am atât inițializările smart pointerilor, rendarea ferestrei, texturile, fontul, pereții, temporizatoarele și variabilele pentru gameStage și knightAlive( cavalerul care a rămas în viață). Drept funcții private le am pe următoarele: addKnights- care adaugă cavalerii în vector pe pozițiile corecte; initializeWalls – initializez zidurile incaperii pentru coliziuni; initilalizeChest – initializeaza cufarul de unde isi ia sabia( unde schimb textura cu una care are sabie in mana); initializeSafeZone – initializeze zona sigură din prima etapă; initilaizeBackground – initializez fundalul; initializeUI – setez cele două ferestre de start și Game Over cu mesaje și efect de blurare a fundalului; renderMenu – afisez mesajul de Play și fundalul aferent; renderGameOver – afisez mesajul de Game Over și fundalul aferent;  updateGameMessage – afișează mesajul din etapa jocului în care se află jucătorul; handleEvents – se ocupă de evenimente( deschiderea ferestrei, schimbarea interfetei de joc); isInSafeZone – verific dacă jucătorul se află în aria zonei sigure; changeTexture – schimb textura eroului atunci când ajunge la cufăr o dată; betweenKnights – setează o anumită distanță între cavaleri pentru a nu se suprapune entitățile lor; update – se ocupă de tot jocul, aici apelăm funcțiile anterior precizate, mișcăm entitățile, lansăm atacurile, actualizăm fiecare frame și mesaj; render – afișăm toate entitățile, fundaluri, pereți și ce alte lucruri mai sunt necesare pentru interfața grafică a jocului.
 
+## Tratarea exceptiilor
 Mai exista clasa ExceptionsG care se ocupă cu prinderea și tratarea a trei exceptii diferite: FileLoadingException, InvalidMovementException, InvalidAttackException. Pe prima o folosesc la testarea excepție de neîncărcare a imaginii de fundal în clasa Game. Pe următoarele două le flosesc cu try/catch în clasa Hero pentru nerespectarea mișcărilor impuse de la tastatură și atacuri invalide( ceva nu ar funcționa bine sau distanța e mult prea mare).
+
+## Templates
+Singura modificare a codului pentru a implementa un template esrte in functia changeTexture() pentru a crea oportunitatea de a schimba textura oricarui obiect desenabil care permie incarcarea unei texturi.
+
+## Design patterns
+# Singleton
+Am modificat clasa Game in asa fel incat: am sters constructorul de copiere pentru a permite crearea unei singure instante, am creat instanta drept pointer si la finel am grija sa o sterg/distrug.
+
+# Observer pattern
+Este putin mai necunoscut decat Singleton, Factury sau Builder, dar are rolul de a crea notificari in timp real pentru observatori/jucatori. Pentru aceasta am mai creat doua clasa: Observer si Subjects care vor crea, respectiv afisa notificarile in legatura cu damage-ul pe care il ia playerul.
 
 ## Bibliografie 
 
