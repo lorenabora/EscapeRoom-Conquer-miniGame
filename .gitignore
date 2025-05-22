@@ -8,3 +8,5 @@
 "*.ilk" 
 "*.log" 
 "*.db" 
+"lib/" 
+"include/sfml/" 
