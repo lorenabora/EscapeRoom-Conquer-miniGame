@@ -32,10 +32,10 @@ Mai exista clasa ExceptionsG care se ocupă cu prinderea și tratarea a trei exc
 Singura modificare a codului pentru a implementa un template esrte in functia changeTexture() pentru a crea oportunitatea de a schimba textura oricarui obiect desenabil care permie incarcarea unei texturi.
 
 ## Design patterns
-# Singleton
+### Singleton
 Am modificat clasa Game in asa fel incat: am sters constructorul de copiere pentru a permite crearea unei singure instante, am creat instanta drept pointer si la finel am grija sa o sterg/distrug.
 
-# Observer pattern
+### Observer pattern
 Este putin mai necunoscut decat Singleton, Factury sau Builder, dar are rolul de a crea notificari in timp real pentru observatori/jucatori. Pentru aceasta am mai creat doua clasa: Observer si Subjects care vor crea, respectiv afisa notificarile in legatura cu damage-ul pe care il ia playerul.
 
 ## Bibliografie 
