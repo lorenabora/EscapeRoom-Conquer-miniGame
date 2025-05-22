@@ -235,6 +235,7 @@ void Game::update()
     if (gameState != GameState::Playing) return;
 
     updateGameMessage();
+    updateGameHealth();
     bool ok = 0, kingOk = 0;
     float m_delta_t = clock.restart().asSeconds();  //am nevoie pentru a crea atacuri la un anumit interval de timp pentru a nu fi continue
     hero->moveEntity(walls, m_delta_t, *hero);
