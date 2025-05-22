@@ -168,6 +168,11 @@
     <ClInclude Include="Hero.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Knight.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="Subjects.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Epic-Action-Battle-Medieval-Background-Music-_No-Copyright_.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

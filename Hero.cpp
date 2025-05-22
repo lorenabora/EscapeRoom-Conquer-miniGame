@@ -20,6 +20,7 @@ void Hero::moveEntity(const sf::ConvexShape& walls, float delta_t, Entity& playe
 {
     const float speed = 400.f;
     sf::Vector2f movement(0.f, 0.f);
+    //ma folosesc de evenimente pe tastatura pentru a misca eroul dupa bunul plac al jucatorului
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
     {
         movement.y -= speed * delta_t;
@@ -36,7 +37,7 @@ void Hero::moveEntity(const sf::ConvexShape& walls, float delta_t, Entity& playe
     {
         movement.x += speed * delta_t;
     }
-
+    //aici sintetizez o miscare smooth pentru a crea iluzia de deplasare pe diagonala( eroul sa fie indreptat in sensul de mers)
     if (movement.x != 0.f || movement.y != 0.f)
     {
         float length = std::sqrt(movement.x * movement.x + movement.y * movement.y);
@@ -48,7 +49,7 @@ void Hero::moveEntity(const sf::ConvexShape& walls, float delta_t, Entity& playe
         float rotationDeg = rotationAngle * 180.f / 3.14159265f;
         player.getEntity().setRotation(sf::degrees(rotationDeg + 180.f));
     }
-
+    //foloses exceptia pentru coliziuni( in cazul in care playerul vrea sa depaseasca limitele impuse)
     try
     {
         sf::RectangleShape newPlayer = player.getEntity();
@@ -67,6 +68,7 @@ void Hero::moveEntity(const sf::ConvexShape& walls, float delta_t, Entity& playe
 
 void Hero::attack(sf::RectangleShape& player, sf::RectangleShape& enemy, float attackRange, float& enemyHP, sf::Clock& attackTimer)
 {
+    //exceptie pentru attack out of range->pentru a nu se scadea HP-ul in cazul in care un atac a fost considerat invalid
     try
     {
         sf::Vector2f playerPos = player.getPosition();

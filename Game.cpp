@@ -1,5 +1,7 @@
 #include "Game.h"
 
+Game* Game::instance = nullptr;  //initializez singleton pattern
+
 Game::Game()
     : window(sf::VideoMode::getDesktopMode(), "EscapeRoom: Conquer"),
     safeZone(sf::Vector2f({ 850.f,1720.f })),
@@ -50,7 +52,7 @@ Game::Game()
     initializeBackground();
     initializeUI();
 }
-
+//adaug cavaleri in vectorul de entitati
 void Game::addKnights()
 {
     knights.push_back(std::make_unique<Knight>(sf::Vector2f(300.f, 500.f)));
@@ -64,9 +66,10 @@ std::string Game::getGameMessage() const
     if (gameStage == 3) return "Yohooo! Finally I can say Game Over!";
     return "";
 }
-
+//functia care ruleaza jocul
 void Game::run()
 {
+    playBackgroundMusic();
     while (window.isOpen())
     {
         handleEvents();
@@ -107,7 +110,7 @@ void Game::initializeBackground()
         std::cerr << "Error: Could not load background image!\n";
     }
     else
-    {
+    {   //ma asigur ca imaginea mea de fundal se afla pe toata dimensiunea ferestrei
         backgroundSprite = std::make_unique<sf::Sprite>(backgroundTexture);
         backgroundSprite->setScale(sf::Vector2f(
             static_cast<float>(window.getSize().x) / backgroundTexture.getSize().x,
@@ -115,7 +118,7 @@ void Game::initializeBackground()
         );
     }
 }
-
+//initializez ecranele de start si game over
 void Game::initializeUI() 
 {
     startScreen.setSize(sf::Vector2f(3000.f, 2000.f));
@@ -136,7 +139,7 @@ void Game::initializeUI()
     gameOverText->setPosition(sf::Vector2f(1200.f, 800.f));
     gameOverText->setFillColor(sf::Color::Red);
 }
-
+//afisez in UI mesajul corespunzator stadiului jocului
 void Game::updateGameMessage()
 {
     if (gameStage == 1)
@@ -161,9 +164,9 @@ void Game::handleEvents()
         {
             window.close();
         }
-
+        //trebuie sa apese cuvantul play de pe ecran ca sea treaca in stadiul Playing
         if (gameState == GameState::Menu) 
-        {
+        {   //am grija ca ecranul de pornire sa se suprapuna peste fundalul jocului
             if (const auto* resizedEvent = event->getIf<sf::Event::Resized>()) {
                 sf::Vector2u newSize = resizedEvent->size;
                 sf::FloatRect visibleArea(sf::Vector2f(0.f, 0.f), sf::Vector2f(static_cast<float>(newSize.x), static_cast<float>(newSize.y)));
@@ -188,21 +191,26 @@ bool Game::isInSafeZone(const sf::RectangleShape& zone, const sf::RectangleShape
 {
     return zone.getGlobalBounds().contains(player.getPosition());
 }
-void Game::changeTexture(sf::RectangleShape& player, const std::string& newTexture)
-{
-    auto* newSkin = new sf::Texture();
-    if (!newSkin->loadFromFile(newTexture))
-    {
-        std::cerr << "Error loading texture: " << newTexture << std::endl;
-        delete newSkin;
-        return;
-    }
 
-    player.setTexture(newSkin);
+//am modificat-o in Game.h pentru a implementa un template
 
-    sf::IntRect textureRect(sf::Vector2i(0, 0), sf::Vector2i(static_cast<int>(newSkin->getSize().x), static_cast<int>(newSkin->getSize().y)));
-    player.setTextureRect(textureRect);
-}
+//void Game::changeTexture(sf::RectangleShape& player, const std::string& newTexture)
+//{
+//    auto* newSkin = new sf::Texture();
+//    if (!newSkin->loadFromFile(newTexture))
+//    {
+//        std::cerr << "Error loading texture: " << newTexture << std::endl;
+//        delete newSkin;
+//        return;
+//    }
+//
+//    player.setTexture(newSkin);
+//
+//    sf::IntRect textureRect(sf::Vector2i(0, 0), sf::Vector2i(static_cast<int>(newSkin->getSize().x), static_cast<int>(newSkin->getSize().y)));
+//    player.setTextureRect(textureRect);
+//}
+
+//pentru a evita suprapunerea celor doi cavaleri, am grija sa nu se creeze o coliziune
 void Game::betweenKnights(sf::RectangleShape& knight1, const sf::RectangleShape& knight2, const sf::ConvexShape& walls)
 {
     sf::Vector2f posK1 = knight1.getPosition(), posK2 = knight2.getPosition();
@@ -221,13 +229,14 @@ void Game::betweenKnights(sf::RectangleShape& knight1, const sf::RectangleShape&
     }
 }
 
+//aici se intampla magia jocului
 void Game::update()
 {
     if (gameState != GameState::Playing) return;
 
     updateGameMessage();
     bool ok = 0, kingOk = 0;
-    float m_delta_t = clock.restart().asSeconds();
+    float m_delta_t = clock.restart().asSeconds();  //am nevoie pentru a crea atacuri la un anumit interval de timp pentru a nu fi continue
     hero->moveEntity(walls, m_delta_t, *hero);
     hero->moveHPBar(hero->getEntity(), hero->getHPBar(), walls, m_delta_t, 400.f);
     for (auto& knight : knights)
@@ -236,6 +245,7 @@ void Game::update()
     }
     king->moveHPBar(king->getEntity(), king->getHPBar(), walls, m_delta_t, 250.f);
 
+    //cat timp este in safe zone, cavalerii nu il mai urmaresc/ataca pe erou
     if (!isInSafeZone(safeZone, hero->getEntity()))
     {
         if (Hero* heroPtr = dynamic_cast<Hero*>(hero.get()))
@@ -247,7 +257,7 @@ void Game::update()
         }
     }
     betweenKnights(knights[0]->getEntity(), knights[1]->getEntity(), walls);
-
+    //daca eroul a dat hover pe cufar, isi ia sabia( schimb textura eroului)
     if (isInSafeZone(chest, hero->getEntity()) && !ok)
     {
         ok = 1;
@@ -286,6 +296,7 @@ void Game::update()
         knights[knightAlive]->getEntity().setPosition(sf::Vector2f(-1000.f, -1000.f));
         gameStage = 2;
     }
+    //daca ambii cavaleri au murit in batalie, regele se va apara singur si il va ataca pe erou
     if (gameStage == 2)
     {
         if (King* kingPtr = dynamic_cast<King*>(king.get()))
@@ -303,6 +314,7 @@ void Game::update()
         king->getEntity().setPosition(sf::Vector2f(-1000.f, -1000.f));
         gameStage = 3;
     }
+    //daca moare eroul, va aparea pe ecran Game Over
     if (hero->getHP() <= 5.f)
     {
         hero->getEntity().setPosition(sf::Vector2f(5000.f, 780.f));
@@ -319,12 +331,13 @@ void Game::update()
     if (kingPtr)
     {
         kingPtr->dodgeAttack(king->getEntity(), hero->getEntity(), walls);
+        //puterea speciala a regelui, se poate teleporta oriunde pentru a deruta adversarul si pentru a da dodge la atacurile eroului
     }
 
     hero->updateHPBar(hero->getHP(), hero->getHPBar(), 200.f);
     king->updateHPBar(king->getHP(), king->getHPBar(), 200.f);
 }
-
+//controlez ce se va afisa pe ecran
 void Game::render()
 {
     window.clear();
@@ -376,7 +389,7 @@ void Game::renderMenu()
     window.draw(startScreen);  
     window.draw(*playButton);   
 }
-
+//suprascriu operatorul de scriere pentru mesajele din consola in timpul jocului
 std::ostream& operator<<(std::ostream& os, const Game& game)
 {
     os << game.getGameMessage();

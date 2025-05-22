@@ -1,5 +1,5 @@
 #include "King.h"
-
+//urmareste indeaproape modelul clasei KNight cu o singura exceptie, functia dodgeAttack
 King::King(sf::Vector2f position)
     : Entity(250.f, 250.f, sf::Vector2f(300.f, 300.f), position, "kingTexture.png")
 {}
@@ -50,7 +50,7 @@ void King::attack(sf::RectangleShape& player, sf::RectangleShape& enemy, float a
     float distance = std::sqrt(std::pow(playerPos.x - enemyPos.x, 2) + std::pow(playerPos.y - enemyPos.y, 2));
     if (distance <= attackRange && attackTimer.getElapsedTime().asSeconds() >= 1.5f)
     {
-        playerHP -= 10.f;
+        playerHP -= 15.f;
         attackTimer.restart();
     }
 }
@@ -64,9 +64,11 @@ void King::dodgeAttack(sf::RectangleShape& king, sf::RectangleShape& player, con
     if (length < 50.f)
     {
         direction /= length;
+        //daca hero e prea aproape, iau o distanta factor, randomizez si teleportez regele in alta parte
         float distanceFactor = (1.0f >= 200.0f / length ? 1.0f : 200.f / length);
         float randomMove = static_cast<float>(rand() % 50 + 10) * distanceFactor;
         sf::Vector2f newPos = kingPos + (direction * randomMove);
+        //verific coliziunea cu peretii in cazul unei teleportari mult prea la distanta
         if (walls.getGlobalBounds().contains(newPos))
         {
             king.move(-direction * randomMove);

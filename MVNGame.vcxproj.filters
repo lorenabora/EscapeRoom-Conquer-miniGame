@@ -78,5 +78,16 @@
     <ClInclude Include="ExceptionsG.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Subjects.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Epic-Action-Battle-Medieval-Background-Music-_No-Copyright_.ogg">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

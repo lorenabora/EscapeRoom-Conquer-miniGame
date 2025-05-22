@@ -9,6 +9,7 @@ class King : public Entity
 {
 public:
     King(sf::Vector2f position);
+    ~King() = default;
     std::unique_ptr<Entity> clone() const override;
     std::string getLevelMessage(int gameStage) const override;
 

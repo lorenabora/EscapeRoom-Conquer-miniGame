@@ -6,5 +6,5 @@ C:\Users\boral\Desktop\Lab1POO\MVNGame\include\SFML\System\Exception.hpp(41,47):
       C:\Users\boral\Desktop\Lab1POO\MVNGame\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\boral\Desktop\Lab1POO\MVNGame\Game.cpp(210,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\boral\Desktop\Lab1POO\MVNGame\Game.cpp(218,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   MVNGame.vcxproj -> C:\Users\boral\Desktop\Lab1POO\MVNGame\x64\Debug\MVNGame.exe

@@ -41,7 +41,9 @@ void Entity::updateHPBar(float currentHP, sf::RectangleShape& hpBar, float maxHP
     {
         hpBar.setFillColor(sf::Color::Green);
     }
+    notifyObservers("Player took damage. HP Updated: " + std::to_string(currentHP));  //Notificam observatorii cand HP-ul se schimba
 }
+//bara HP urmareste entitatile pe mapa
 void Entity::moveHPBar(sf::RectangleShape& player, sf::RectangleShape& hpBar, sf::ConvexShape& walls, float delta_t, float speed)
 {
     sf::Vector2f hpBarPosition = hpBar.getPosition();
