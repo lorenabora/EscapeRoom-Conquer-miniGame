@@ -1,58 +1,53 @@
 # EscapeRoom-Conquer-miniGame
-## Idee de bază
+## Game Overview
+- The game is a 2D, pixel art, kind of escape room where you need to conquer it to be declared the winner. The player is inside the throne room, locked inside with 2 knights and a king. Inside the chest you get the weapon and once you stepped a little too close to the enemies, the knights start coming after you and attack you ruthless. If you manage to eliminate the knights, the king will make sure to protect his crown and try to eliminate you, but be carefull, he is not king in name only.
+- The goal is to become the new king of the room in order to escape (so basically kill all the enemies).
+- The ending? Well, it depends on you! You win? A message in green will announce it. You lose( either killed or mutual destruction), your soul will be trapped in the game forever.
+- Hints! The game is structured in 3 stages:
+  1. When you "wake up" in the game and you need to search for the weapon.
+  2. When the knights attack: in this stage you have a safe zone where the knights can't attack the player and not only that, but once the player steps into that zone, the knights freeze.
+  3. When the king arises, the safe zone is no longer available and the king can dodge your attacks getting teleported randomly in the room.
 
-Povestea din spatele temei pe care am ales-o este următoarea: dumneavoastră( jucătorul) vă treziți în camera tronului fără niciun indiciu, ușa din spatele dumneavoastră este încuiată, singura șansă de scapare este să rămâneți ultimul din încăpere. Scopul jocului este să evadați din încăpere prin devenirea noului rege( rege va fi entitatea care rămâne în viață până la finalul jocului).
+## Class Arhitecture & OOP Design
+The game is sectioned into more classes: Entity, Hero, Knight, King, Game, ExceptionsG.
 
-În partea din stânga-sus aveți mesaje sau indicii care să vă ajute să câștigați joculețul. În cufărul din stânga jucătorului se află sabia pe care o va utiliza jucătorul. 
+Class Entity is the base, abstracted class of the game. Because even if you are the hero(player) or one of the enemies, most of the functions have the same scope, so I decided to override them in order for the player to move based on the WASD keys and atttack with the space bar, meanwhile the enemies have automated triggers that makes them move, they follow the player in the room and attacks them only inside a range. I enforced the custom behavior using pure virtual functions.
 
-În prima etapă a jocului cavalerii regelui vor ataca jucătorul după acesta va păși în afara zonei sigure. Această zona se va reactiva odată cu reintrarea jucătorului în ea, dar numai în această etapă. După ce cavalerii au fost ambii învinși, regele va încerca să își apere titlul, atacând jucătorul și încercând să se apere de atacurile acestuia dacă o anumită distanță este atinsă între rege și jucător. În această ultimă etapă a jocului, zona sigură nu se va mai reactiva, jucătorul devenind vulnerabil.
-Există trei cazuri ale acestui joc: câștigă jucătorul, iar un mesaj îi va reflecta gândurile; regele va câștiga, ceea ce înseamnă că nu ați reușit să evadați din încăpere, sau ambii adversari vor dispărea din cameră, ceea ce înseamnă că jucătorul și regele s-au atacat simultan și au pierit în bătăție, moment în care se declară pierderea jocului( din punct de vedere al scopului inițial).
+Also, in this class I created specific protected data like the forms of the entities, the HP bar, the textures, value of the HP and maximum of HP per entity and, of course, the gameStage.
 
-## Funcționalitatea codului detaliata
-Codul este împărțit în șase clase: Entity, Hero, Knight, King, Game și ExceptionsG.
+In the public zone of this function I initialised the constructor and virtual destructor, followed closely by functions:
+- clone() : copy a smart pointer for creation of a new entity which will have the specific features from the class where it gets called( Hero, Knight, King); constant pure virtual function;
+- getLevelMessage() : pure virtual function for determination of the stage of the game;
+- getEntity() : return the type of variable of the entity (e.g.: sf::RectangleShape);
+- getHPBar() : helping function for modification of the HP bar during a fight;
+- getHP() : helping function for numerical modification of the HP bar( gets the value in real time);
+- moveEntity() : pure virtual function that is overridden for each type of entity;
+- attack() : pure virtual function for controlled( player)/ automatic (knights, king) attacks;
+- updateHPBar() : where use the other two functions to midify the length and tha value of HP;
+- moveHPBar(): follow the entity in the room( above each head there is an HP bar);
+- isAlive();
+- isPointInsideConvexShape() : verify the center of entity to be inside the walls of the room;
+- isPlayerWithinWalls() : with the help of the previous function, rezolving the collisions with the walls;
+- draw() : called untill an entity reaches 0 HP.
 
-Clasa Entity este clasa părinte pentru cele trei tipuri de entități ale jocului: Hero, Knight, King. În această clasă am creat  ca date protected formele entității și bării de HP, textura entității, valoare HP-ului și maximul de HP inițial( variabile tip float), gameStage( de tip int pentru a contoriza stagiile jocului).
+For the Hero, the movement is based on the keys WASD, the attack ( in a close range) with the space bar, meanwhile for the knights/king, based on each stage, they start moving following actually the coordonates of the player in the room, they "attack" them only if they are reachable.
 
-În zona publică a clasei am inițializat constructorul parametrizat și destructorul virtual, urmate de următoarele funcții: clone()- funție care se ocupă de copierea unui smart pointer pentru generarea unei noi entități care va avea caracteristicile specifice unei categorii de entități, funcție constantă pur virtuală; getLevelMessage()- funcție pur virtuală care va fi suprascrisă pentru a determina stagiul jocului; getEntity()- funcție care va returna tipul de variabilă pe care îl are entitatea( va returna un sf::RectangleShape); getHPBar()- funcție ajutătoare pentru a modifica bara de HP pentru momentele în care o entitate a fost atacată și pierde din viață; getHP()- funcție creată din același motiv precum precedenta, doar că va ajuta la modificarea numerică a HP-ului; moveEntity()- funcție virtual pură pe care o voi suprascrie pentru a personaliza mișcarea fiecărui tip de entitate; attack()- funcție virtual pură pe care o voi personaliza pentru fiecare tip de entitate; updateHPBar()- funcție care va actualiza valoarea de HP și îi va modifica lungimea barei; moveHPBar()- funcție care va face posibilă mișcarea în sincron a barei de HP odată cu entitatea; isAlive()- verific dacă entittaea mai este vie sau a ajuns la HP 0, o voi folosi drept condiție în funcția draw; isPointInsideConvexShape()-funcție care verifică dacă un punct( centrul entității) este în interiorul pereților; isPlayerWithinWalls()-funcție proiectată pentru a rezolva coliziunile cu pereții încăperii care nu este un poligon regulat pentru a nu ieși entitățile din cadrul încăperii, se folosește de funcția isPointInsideConvexShape(); draw()- funcție care desenează entitatea în cazul în care nu a murit.
+The King has a special function, dodgeAttack(), that teleports the king randomly on the map so that the player needs to strugle a bit for a clean victory.
 
-Clasa Hero moștenește clasa Entity și îi suprascrie funcțiile pure astfel încât: în funcția moveEntity() folosesc evenimentele tastelor W,A,S,D pentru a muta jucătorul în direcțiile aferente și a crea mișcări cât mai line, rotația entității în funcție de direcția de mișcare, iar funcția attack() se folosește de bara space pentru a ataca inamicii de la o anumită distanță. Funcția de clonare a fost suprascrisă pentru a returna un smart pointer de tip Hero, iar getLevelMessage va fi setat la starea 0, începerea jocului.
-Suplimentar, avem constructorul special entității nerou care folosește constructorul clasei Entity, adăugând numai posiția specifică jucătorului.
+The Game class is the engie of all the game, here I render the movements, update the locations, HP of the entities, the fights are worn. All the frames are updated while the window with the game is not closed. 
 
-Clasa Knight este similară cu cea a eroului, doar că în funcția de moveEntity() cavalerii vor urmări eroul drept țintă, modificându-și direcția în funcție de mișcarea jucătorului, iar funcția attack() se va activa doar dacă jucătorul intră într-o anumită distanță. Funcția de clonare va fi folosită într-un vector de cavaleri de tip smart pointers în clasa Game.
+In the public zone I included the destructor, constructor, the function getGameMesssage(), override of the << operator( for messages line inside the terminal) and the run() function that plays the 3 private functions( handleEvents(), update(), render()).
 
-Clasa King operează la fel precum clasa Knight, diferența vine de la funcția specială a acestei clase: dodgeAttack care se ocupă de teleportarea regelui într-o direcție și o distanță randomizată pentru a fi mai dificil de învins de către erou.
+## Gamep Mechanics
+- Controls: WASD for movement, Space for attack (player);
+- Safe Zone: only active during stage 1 and 2;
+- Enemy AI: chase, attack in the proxy, the king can dodge.
+- Victory condition: the player needs to be the only survivor. If, by chance, you kill the king and the king kills you simultaneously, it is called defeat because you can't escape a room where you where eliminated.
 
-Clasa Game are grijă ca toate buclele jocului să funcționeze bine, sa se actualizeze corect toate frame-urile jocului cât timp fereastra este deschisă. Am două zone: în cea publică am inclus constructorul, destructorul clasei, funcția getGameMessage care va afișa mesajele stagiilor jocului, suprascrierea operatorului <<( pentru mesajele care vor fi scrise în terminal) și funcția run care manevrează cele trei funcții private care pun în funcțiune jocul cât timp fereastra este deschisă( handleEvents, update, render). 
-În partea privată a aceste clase am atât inițializările smart pointerilor, rendarea ferestrei, texturile, fontul, pereții, temporizatoarele și variabilele pentru gameStage și knightAlive( cavalerul care a rămas în viață). Drept funcții private le am pe următoarele: addKnights- care adaugă cavalerii în vector pe pozițiile corecte; initializeWalls – initializez zidurile incaperii pentru coliziuni; initilalizeChest – initializeaza cufarul de unde isi ia sabia( unde schimb textura cu una care are sabie in mana); initializeSafeZone – initializeze zona sigură din prima etapă; initilaizeBackground – initializez fundalul; initializeUI – setez cele două ferestre de start și Game Over cu mesaje și efect de blurare a fundalului; renderMenu – afisez mesajul de Play și fundalul aferent; renderGameOver – afisez mesajul de Game Over și fundalul aferent;  updateGameMessage – afișează mesajul din etapa jocului în care se află jucătorul; handleEvents – se ocupă de evenimente( deschiderea ferestrei, schimbarea interfetei de joc); isInSafeZone – verific dacă jucătorul se află în aria zonei sigure; changeTexture – schimb textura eroului atunci când ajunge la cufăr o dată; betweenKnights – setează o anumită distanță între cavaleri pentru a nu se suprapune entitățile lor; update – se ocupă de tot jocul, aici apelăm funcțiile anterior precizate, mișcăm entitățile, lansăm atacurile, actualizăm fiecare frame și mesaj; render – afișăm toate entitățile, fundaluri, pereți și ce alte lucruri mai sunt necesare pentru interfața grafică a jocului.
-
-# Pe scurt:
-## Mostenire
-In partea principala a codului, clasa de baza este Entity, de la care vor mosteni atribute clasele derivate: Hero, Knight si King.
-In partea a doua, la tratarea exceptiilor, am mostenit din std::exception exceptii pentru cele 3 pe care am ales sa le rezolv( incarcarea esuata a fisierului, miscarea in afara peretilor; coliziuni, atacuri invalide).
-
-## Functii virtuale pure si utilizare clone
-In clasa Entity( devenita clasa abstracta) veti observa functiile
-
-virtual std:unique_ptr<Entity> clone() const =0; care va ajuta la clonarea/copierea unei entitati din aceeasi subcategorie si va fi suprascrisa in asa fel in toate cele 3 clase derivate;
-
-virtual std::string getLevelMessage(int gameStage) const=0; pentru actualizarea mesajului din fiecare stadiu al jocului;
-
-virtual void moveEntity(const sf::ConvexShape& walls, float delta_t, Entity& entity, Entity* enemy = nullptr) = 0; pentru ca hero(jucatorul) se va misca pe baza tastelor WASD, pe cand inamicii vor avea functii scrise in asa fel inca sa urmareasca tinta;
-
-virtual void attack(sf::RectangleShape& player, sf::RectangleShape& enemy, float attackRange, float& enemyHP, sf::Clock& attackTimer) = 0; atacul jucatorului este pe baza apasarea tastei Space, pe cand inamicii ataca automat cand le intrii in raza de atac.
-
-## Smart pointers
-Toate entitatile sunt construite drept smart pointers, urmarind sintaxa concreta. De asemenea, am un vector de entitati pentru cei doi cavaleri care vor fi identici, singura exceptie fiind pozitia lor initiala in incapere si barile HP diferite( doar nu doream sa moara ambii in acelasi timp, nu?).
-
-Folosesc dynamic_cast pentru crearea de pointeri a entitatilor atunci cand trebuie sa apelez anumite functii cum are fi moveEntity() si attack().
-
-De asemenea, suprascriu operatorul de afisare pentru mesajele din consola.
-
-## Tratarea exceptiilor
-Mai exista clasa ExceptionsG care se ocupă cu prinderea și tratarea a trei exceptii diferite: FileLoadingException, InvalidMovementException, InvalidAttackException. Pe prima o folosesc la testarea excepție de neîncărcare a imaginii de fundal în clasa Game. Pe următoarele două le flosesc cu try/catch în clasa Hero pentru nerespectarea mișcărilor impuse de la tastatură și atacuri invalide( ceva nu ar funcționa bine sau distanța e mult prea mare).
-
-## Templates
-Singura modificare a codului pentru a implementa un template esrte in functia changeTexture() pentru a crea oportunitatea de a schimba textura oricarui obiect desenabil care permie incarcarea unei texturi.
+## Exception Handling
+In the ExceptionsG class there are 3 functions that I want to present: 
+- FileLoadingException() : used in testing the error on loading the background image;
+- InvalidMovementException() and InvalidAttackException() : used for the hero in case that there are collisions or errors during a fight( not respecting the minimum distance or a missed attack).
 
 ## Design patterns
 ### Singleton
@@ -68,6 +63,16 @@ Clasa Subjects va mosteni clasa Observer, va avea in zona rivate un vector de po
 Clasa HealthUI mosteneste clasa Observer si suprascrie functia notify() in asa fel incat sa anunte observatorii de noul scor al barii de HP/cata viata mai are jucatorul.
 
 Clasa Game va mosteni clasa Subjects si vom crea functia updateGameHealth() care are ca unic scop apelarea functie notifyObservers().
+
+## Language used/ Tech Stack
+- C++
+- SFML library
+
+## How to play
+- make sure that you have installed the SFML library on your computer, the dependencies can be a real headache
+- after everything is installed and you cloned the git, just press run as if it is a simple code writen for school
+- on the game window, click on the "Play" message written in green in the middle of the screen
+Enjoy!
 
 ## Bibliografie 
 
