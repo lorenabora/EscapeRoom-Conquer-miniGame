@@ -38,7 +38,7 @@ The Game class is the engie of all the game, here I render the movements, update
 
 In the public zone I included the destructor, constructor, the function getGameMesssage(), override of the << operator( for messages line inside the terminal) and the run() function that plays the 3 private functions( handleEvents(), update(), render()).
 
-## Gamep Mechanics
+## Game Mechanics
 - Controls: WASD for movement, Space for attack (player);
 - Safe Zone: only active during stage 1 and 2;
 - Enemy AI: chase, attack in the proxy, the king can dodge.
