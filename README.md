@@ -76,7 +76,7 @@ Enjoy!
 
 ## Screenshots from stages
 *Start screen*
-![Play]()
+![Play](https://github.com/lorenabora/EscapeRoom-Conquer-miniGame/blob/main/gameSS/play%20game.png)
 *First stage*
 ![Fisrt stage]()
 *Second stage*
