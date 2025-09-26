@@ -74,6 +74,18 @@ Clasa Game va mosteni clasa Subjects si vom crea functia updateGameHealth() care
 - on the game window, click on the "Play" message written in green in the middle of the screen
 Enjoy!
 
+## Screenshots from stages
+*Start screen*
+![Play]()
+*First stage*
+![Fisrt stage]()
+*Second stage*
+![Second stage]()
+*Last stage*
+![Last stage]
+*One of the possibles endings*
+![Ending]()
+
 ## Bibliografie 
 
 1.	YouTube, FuniTinker, “How I structure Entities In My Own C++ Game Engine”
