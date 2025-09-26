@@ -84,7 +84,7 @@ Enjoy!
 *Last stage*
 ![Last stage](https://github.com/lorenabora/EscapeRoom-Conquer-miniGame/blob/main/gameSS/third%20stage.png)
 *One of the possibles endings*
-![Ending]()
+![Ending](https://github.com/lorenabora/EscapeRoom-Conquer-miniGame/blob/main/gameSS/game%20over.png)
 
 ## Bibliografie 
 
